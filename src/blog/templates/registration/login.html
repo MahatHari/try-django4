@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %} {% comment %} start of content {% endcomment %}
+{% block content %}
+<div class="car mt-3 border-0">
+  <div class="card-body text-center">
+    <h2>Login</h2>
+    {% if form.errors %}
+    <p>Your Username and Password did not match. Please try again!</p>
+    {% endif %}
+
+    <form method="POST" action="{% url 'login' %}">
+      {% csrf_token %} {{ form.as_p }}
+      <p class="text-end">
+        <input type="submit" value="Login" class="btn btn-primary" />
+        <input type="hidden" name="next" value="{{next}}" />
+      </p>
+    </form>
+  </div>
+</div>
+
+{% endblock content %}
