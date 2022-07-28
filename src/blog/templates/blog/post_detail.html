@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %} {% load static %} {% block content %}
+<div class="card mt-3 border-0">
+  <img
+    src="{% get_media_prefix %}{{post.image}} "
+    alt="{{post.title}}"
+    class="card-img-top"
+  />
+  <div class="card-body">
+    <h2 class="card-title">
+      {{post.title|title}}
+
+      <small>
+        {{post.author.username|title}}.{{post.created_on|date:"M d, Y"}}
+      </small>
+      <p class="card-text">{{post.content|safe|linebreaksbr}}</p>
+    </h2>
+  </div>
+</div>
+
+{% endblock content %}

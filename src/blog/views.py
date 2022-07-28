@@ -14,6 +14,12 @@ from .forms import PostForm, CommentForm
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by(
         "-created_on")  # latest post on top
+    # template_name='post_list.html'
+
+
+class PostDetail(generic.DetailView):
+    queryset = Post.objects.all().order_by('-created_on')
+    #template_name = "blog/post_detail.html"
 
 
 class CreatePost(LoginRequiredMixin, generic.CreateView):
