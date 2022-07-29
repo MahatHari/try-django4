@@ -38,6 +38,10 @@
   document.getElementById("id_image").onchange = function () {
     previewImage(URL.createObjectURL(event.target.files[0]));
   };
+  if ("{{post.image}}") {
+    let file = "{%get_media_prefix%}{{post.image}}";
+    previewImage(file);
+  }
 </script>
 
 {% endblock %}
