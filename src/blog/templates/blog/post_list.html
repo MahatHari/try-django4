@@ -9,8 +9,11 @@
         alt="{{post.title}}"
         class="card-img-top"
       />
-      <a href="#" class="card-body text-decoration-none text-dark">
-        <h3 class="card title">{{ post.ttle|title }}</h3>
+      <a
+        href="{% url 'post_detail' pk=post.pk %}"
+        class="card-body text-decoration-none text-dark"
+      >
+        <h3 class="card title">{{ post.title|title }}</h3>
         <p class="card-text">
           {{ post.content|safe|linebreaksbr|truncatechars:100 }}
           <small>{% if post.content|length > 100 %} ... {% endif %}</small>
